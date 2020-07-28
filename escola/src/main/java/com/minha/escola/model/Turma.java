@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import com.sun.istack.NotNull;
 
@@ -16,7 +17,9 @@ public class Turma {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //Defenido como auto-Increment la na minha base
 	private long id;
 	
+	
 	@NotNull // Não estou permitindo valores nulos na coluna descricao em meu banco
+	@Size(min = 10, max = 500) // delimita o numero minimo e maximo de caracteres para ser inseridos nesse atributo
 	private String descricao;
 	
 	private boolean ativo;
